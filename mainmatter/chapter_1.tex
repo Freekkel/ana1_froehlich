@@ -1,0 +1,105 @@
+\chapter{Logik, Mengenlehre}
+\section{Mathematische Logik}
+Eine \underline{mathematische Aussage} ist ein Satz, der entweder wahr oder falsch ist. (Diese Definition ist nicht ganz korrekt, soll aber für Ana 1 genügen.)\\
+\underline{Beispiel:} 
+\begin{enumerate}[label=\roman*]
+\item 3 ist eine Primzahl \qquad\qquad $\checkmark$
+\item 4 ist eine Primzahl \qquad\qquad$\lightning$
+\item Es gibt endlich viele Primzahlzwillinge (5 und 7, 11 und 13) ?
+\end{enumerate}
+\subsection{Verknüpfung von Aussagen}
+\begin{tabular}{cc}
+wahr = 1 & falsch = 0 \\  
+\end{tabular} \\
+Aussagen werden mittels folgender \underline{Junktoren} verknüpft:\\ \qquad\\
+\begin{tabular}{ccccc}
+nicht & oder & und & impliziert & genau dann wenn \\ 
+$\neg$ & $\vee$ & $\wedge$ & $\rightarrow$ & $\leftrightarrow$ \\ 
+\end{tabular} \\
+\qquad\\
+Diese werden über euine Wahrheitstabelle \underline{definiert}:\\
+Seien $a$,$b$ zwei Aussagen:\\
+\qquad\\
+\begin{tabular}{|c|c||c|c|c|c|c|}
+$a$ & $b$ & $\neg a$ & $a \wedge b$ & $a \vee b$ & $a \rightarrow b$ & $a \leftrightarrow b$ \\ 
+ \hline 0 & 0 & 1 & 0 & 0 & 1 & 1 \\ 
+0 &  1& 1 & 0 & 1 &  1& 0 \\ 
+1 &  0& 0 & 0 &  1&  0& 0 \\ 
+1 & 1 & 0 & 1 &  1& 1 & 1 \\ 
+\end{tabular} \\
+\qquad\\
+\qquad\\
+Beachte: \\
+$a \rightarrow b$ \glqq entspricht\grqq ~$\neg a \vee b$\\
+$a\leftrightarrow b$ \glqq entspricht\grqq $(a\rightarrow b) \wedge (b \rightarrow a)$\\
+Wir schreiben:\\
+$a \rightarrow b \equiv \neg a \vee b$\\
+$a\leftrightarrow b \equiv (a\rightarrow b) \wedge (b \rightarrow a)$\\
+Solche Ausdrücke heißen \underline{äquivalent}.\\
+\qquad\\
+\underline{Satz 1}: Es gelten die \underline{Distributivgesetze} und die de Morganschen Regeln. (die letzten beiden \glqq Gleichungen\grqq).
+\begin{align*}
+a \wedge ( b \vee c) & \equiv (\neg a \vee b)\\
+a \vee ( b \wedge c) & \equiv (a\vee b) \wedge (a \vee c)\\
+\neg (a \wedge b )  & \equiv \neg a \vee \neg b \\
+\neg (a \vee b) & \equiv \neg a \wedge \neg b
+\end{align*}\\
+\underline{Beweis:} Siehe aktuelle Übung. Der Beweis wird später eingefügt.
+
+\subsubsection{Aussagenlogische Beweisprinzipien}
+Tautologie = Aussagen, welche \underline{stets} wahr sind.\\ \qquad\\
+\underline{Beispiele:}\\\qquad\\
+\begin{table}
+\begin{tabular}{|c|c|}
+\hline Regelname & Regel \\ 
+\hline Der Satz vom ausgeschlossenem dritten & $a \vee \neg a$  \\ 
+\hline  Satz vom Widerspruch & $\neg (a \wedge \neg a)$  \\ 
+\hline  Satz von der doppelten Verneinung & $\neg ( \neg a)  \rightarrow a$\\ 
+\hline  Kontraposition & $(a \rightarrow b ) \rightarrow (\neg b \rightarrow \neg a)$  \\ 
+\hline  Modus ponens & $(a \rightarrow b) \wedge a \rightarrow b$ \\ 
+\hline  Distributivgesetz (Modus Barbara) & $(a\rightarrow b) \wedge (b \rightarrow c) \rightarrow (a \rightarrow c)$  \\ 
+\hline 
+\end{tabular} 
+\caption{Aussagenlogische Beweisprinzipien}
+\end{table}
+
+\subsection{Prädikatenlogische Quantoren}
+Es sei $X$ = eine \glqq Zusammenfassung\grqq von Objekten $x$, in Zeichen $x \in X$
+\subsubsection{Quantoren}
+\begin{tabular}{ccc}
+Allquantor & $\forall x \in X~~p(x)=$ Für alle $x\in X$ soll gelten & z.B. $p(x)=x+27=13,~x\in\{-14\}$ \\ 
+Existenzquantor & $\exists x \in X~~p(x)=$ Es gibt ein $x \in X$, so dass $p(x)$ gilt & z.B $p(x)=x-7=6,~x=\{1,2,8,13\}$ 
+\end{tabular} 
+\\
+\underline{Beispiel:}\\
+Eine Funktion $f: \Omega \rightarrow \mathbb{R} ,~\Omega\subset\mathbb{R}$, heißt in einem Punkt $x_{0} \in \Omega$ stetig, wenn gilt \\$\forall\epsilon>0~\exists\delta>0~\forall x\in \Omega \{|x-x_{0}|<\delta\rightarrow|f(x)-f(x_{0})|<\epsilon\}$
+\subsubsection{Negation der Quantoren}
+\begin{align*}
+\forall\exists x  p(x)) & \equiv \neg\exists x p(x)\\
+ \exists x  p(x)) & \equiv  \neg\forall x p(x)
+\end{align*}\\
+\underline{Beispiel:} Negation von Stetigkeit\\\qquad\\
+$\neg\{\underbrace{\forall\epsilon>0}\exists\delta>0~\forall x\in \Omega [|x-x_{0}|<\delta\rightarrow|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\neg\{\underbrace{\exists\delta>0}~\forall x\in \Omega [|x-x_{0}|<\delta\rightarrow|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\forall\delta>0\neg\{\underbrace{\forall x\in \Omega} [|x-x_{0}|<\delta\rightarrow|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\forall\delta>0~\exists x\in \Omega\neg [\underbrace{|x-x_{0}|}<\delta\vee|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\forall\delta>0~\exists x\in \Omega\neg [\neg(|x-x_{0}|)<\delta\wedge\neg|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\forall\delta>0~\exists x\in \Omega [\neg\neg|x-x_{0}|<\delta\wedge\neg|f(x)-f(x_{0})|<\epsilon]\}$\\
+$=\exists\epsilon>0\forall\delta>0~\exists x\in \Omega [|x-x_{0}|<\delta\wedge\neg|f(x)-f(x_{0})|<\epsilon]\}$\\
+\subsection{Einführung Mengenlehre}
+\glqq Menge\grqq wird \underline{nicht} definiert, sondern über \glqq seine\grqq Eigenschaften axiomatisch eingeführt. (in einem späteren Semester folgt die genauere Definition.)\\
+\\
+Mengen lassen sich z.B. charakterisieren durch:\\
+\begin{itemize}
+\item Angabe ihrer Elemente, $M=\{m_{1},m_{2},m_{3}$ \dots\}
+\item Angabe einer charaktersierenden Eigenschaft, $M=\{x\in X:p(x)\}$\\
+\end{itemize}
+\underline{Beispiele:}\\\qquad\\
+\begin{enumerate}[label=\roman*]
+\item $M=\{1\}$ \qquad $M$ besteht aus der Zahl 1
+\item $M=\{1,\{1\}\}$ \qquad $M$ besteht aus der Zahl 1 und der Menge welche die 1 enthält.
+\item $\mathbb{N} = \{1,2,3,4,\dots\}$ natürliche Zahlen ohne 0
+\item $M = \{0,\sqrt{2},-\sqrt{2}\} = \{x\in X:x^{3}=2x\}$
+\item $M = \emptyset$ leere Menge ($\nexists x \in M$)\\
+$M=\{x\in\mathbb{R}:x^{2}=-2\}$ besitzt kein Element ($\emptyset$) da $x^{2}=-2$ in $\mathbb{R}$ keine Lösung besitzt.
+\end{enumerate}
